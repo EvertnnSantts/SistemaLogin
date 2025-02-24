@@ -1,4 +1,4 @@
-import Sequelize from 'sequelize';
+import { Sequelize } from 'sequelize';
 const sequelize = new  Sequelize('opfinance', "root", "82937061eve7iE@", {
     host: 'localhost',
     dialect: 'mysql',
@@ -13,4 +13,4 @@ const sequelize = new  Sequelize('opfinance', "root", "82937061eve7iE@", {
      console.log('erro ao conectar com o banco de dados:', err)
   })
 
-export default sequelize;
+  export { sequelize, Sequelize };
