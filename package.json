@@ -1,6 +1,7 @@
 {
   "name": "opcaomix",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
@@ -14,11 +15,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "node --watch src/inde.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "type": "module"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
