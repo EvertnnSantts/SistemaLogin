@@ -1,7 +1,7 @@
 
-# OPN Finance
+# Op MIX
 
-O **OPN Finance** é um sistema desenvolvido para agilizar e organizar os serviços básicos de um mercado. A proposta do projeto é fornecer uma solução simples e eficiente para gerenciar as operações financeiras e de estoque de pequenos negócios.
+O **Op MIX** é um sistema desenvolvido para agilizar e organizar os serviços básicos de um mercado. A proposta do projeto é fornecer uma solução simples e eficiente para gerenciar as operações financeiras e de estoque de pequenos negócios.
 
 ## 📦 Instalação
 
@@ -9,7 +9,7 @@ Para instalar o sistema, siga os passos abaixo:
 
 1. Instale a versão LTS do [Node.js](https://nodejs.org/).
 2. Instale um banco de dados [MySQL](https://www.mysql.com/).
-3. Crie um banco de dados com o nome **OPNFINANCE**.
+3. Crie um banco de dados com o nome **Op MIX**.
 4. Instale as dependências necessárias:
 
    ```
