@@ -18,6 +18,9 @@ Para instalar o sistema, siga os passos abaixo:
    npm install mysql2
    npm install express
    npm install react
+   npm install concurrently
+   npm install cors
+   npm install axios
    
 
 ## ⚙️ Uso
