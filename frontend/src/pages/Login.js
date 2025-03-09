@@ -24,15 +24,14 @@ const Login = () => {
 
       if (response.ok) {
         // Login bem-sucedido
-        console.log(data.message); 
-        setErrorMessage('');
+        var sucesso = setErrorMessage('Sucesso');
       } else {
         // Erro no login
         setErrorMessage(data.message);
       }
     } catch (error) {
       console.error('Erro ao fazer login:', error);
-      setErrorMessage('Erro ao conectar com o servidor. Verifique se o backend está rodando.');
+      setErrorMessage('Erro ao conectar com o servidor.');
     }
   };
 
@@ -46,7 +45,7 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <div className="input-container">
             <input
-              type="text"  // Altere de "email" para "text" para username
+              type="text" 
               id="username"
               placeholder="Usuário"
               onChange={(e) => setUsername(e.target.value)}
@@ -64,6 +63,7 @@ const Login = () => {
             Entrar
           </button>
         </form>
+       {/* Necessário ajuste no front: */}
         {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>
     </div>

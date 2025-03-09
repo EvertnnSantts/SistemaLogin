@@ -1,3 +1,6 @@
+body{
+  margin: auto;
+}
 .login-container {
     margin: auto;
     display: flex;
