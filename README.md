@@ -21,6 +21,7 @@ Para instalar o sistema, siga os passos abaixo:
    npm install concurrently
    npm install cors
    npm install axios
+   npm install build
    
 
 ## ⚙️ Uso
