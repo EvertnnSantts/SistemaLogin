@@ -10,7 +10,7 @@ Para instalar o sistema, siga os passos abaixo:
 
 1. Instale a versão LTS do [Node.js](https://nodejs.org/).
 2. Instale um banco de dados [MySQL](https://www.mysql.com/).
-3. Crie um banco de dados com o nome **Op MIX**.
+3. Crie um banco de dados com o nome **opfinance**.
 4. Instale as dependências necessárias:
 
    ```
