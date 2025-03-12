@@ -15,11 +15,13 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "client": "react-scripts start",
     "server": "cd ./backend/src/middleware && node server.js"
   },
+
   "eslintConfig": {
     "extends": [
       "react-app",

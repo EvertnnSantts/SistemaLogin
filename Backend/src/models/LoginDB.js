@@ -1,22 +1,27 @@
-import { sequelize, Sequelize } from '../config/ConexaoDB.js';
+import { sequelize, Sequelize } from "../config/ConexaoDB.js";
 
-const LoginDB = sequelize.define('LoginDB', {
+const LoginDB = sequelize.define("LoginDB", {
   usuario: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
   senha: {
     type: Sequelize.STRING,
-    allowNull: false
-  }
+    allowNull: false,
+  },
+  email: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    unique: true,
+  },
 });
 
-LoginDB.sync({ force: false })
+LoginDB.sync({ alter: true })
   .then(() => {
-    console.log('Modelo "LoginDB" sincronizado com o banco de dados');
+    console.log('Modelo "LoginDB" sincronizado e atualizado');
   })
-  .catch(err => {
-    console.error('Erro ao sincronizar modelo LoginDB com o banco de dados:', err);
+  .catch((err) => {
+    console.error("Erro ao sincronizar modelo LoginDB:", err);
   });
 
 export default LoginDB;

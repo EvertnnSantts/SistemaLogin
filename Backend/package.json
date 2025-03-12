@@ -10,7 +10,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.21.2"
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mysql2": "^3.13.0",
+    "sequelize": "^6.37.6"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
+  }
 }
