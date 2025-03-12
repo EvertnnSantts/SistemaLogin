@@ -23,10 +23,8 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // Login bem-sucedido
         var sucesso = setErrorMessage('Sucesso');
       } else {
-        // Erro no login
         setErrorMessage(data.message);
       }
     } catch (error) {
