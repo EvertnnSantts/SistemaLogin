@@ -1,8 +1,8 @@
 
-# Op MIX
+# Login
+
 Status: Em Desvolvimento...
 
-O **Op MIX** é um sistema desenvolvido para agilizar e organizar os serviços básicos de um mercado. A proposta do projeto é fornecer uma solução simples e eficiente para gerenciar as operações financeiras e de estoque de pequenos negócios.
 
 ## 📦 Instalação
 
