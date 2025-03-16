@@ -1,43 +1,39 @@
 import React, { useState } from 'react';
 import './Login.css';
+import axios from 'axios';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setError] = useState('');
+  const [token, setToken] = useState('');
 
-
-//configuração do servidor express (PRECISA SER REVISADA, PORÉM ESTA FUNCIONADO)
+  //configuração do servidor express (PRECISA SER REVISADA, PORÉM ESTA FUNCIONANDO)
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
+      // Envia a requisição POST para o servidor de login
+      const response = await axios.post('http://localhost:5000/api/login', {
+        username,
+        password
       });
 
-      const data = await response.json();
+      // Salva o token em localStorage
+      localStorage.setItem('token', response.data.token);
+      setToken(response.data.token);
 
-      if (response.ok) {
-        // Login bem-sucedido
-        var sucesso = setErrorMessage('Sucesso');
-      } else {
-        // Erro no login
-        setErrorMessage(data.message);
-      }
-    } catch (error) {
-      console.error('Erro ao fazer login:', error);
-      setErrorMessage('Erro ao conectar com o servidor.');
+      // Exibe mensagem de sucesso
+      alert('login bem-sucedido!');
+    } catch (err) {
+      // Exibe mensagem de erro
+      setError(err.response ? err.response.data.message : 'erro ao fazer login');
     }
   };
 
-//frontend
-//(É NECESSARIO UM FORMULARIO DE CRIAÇÃO DE CADASTRO)
-//CSS DEVE SER CORRIGINDO (MARGEM, PADDING)
+  //frontend
+  //(É NECESSARIO UM FORMULARIO DE CRIAÇÃO DE CADASTRO)
+  //CSS DEVE SER CORRIGINDO (MARGEM, PADDING)
   return (
     <div className="login-container">
       <div className="login-box">
@@ -45,9 +41,10 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <div className="input-container">
             <input
-              type="text" 
+              type="text"
               id="username"
               placeholder="Usuário"
+              value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
@@ -56,6 +53,7 @@ const Login = () => {
               type="password"
               id="password"
               placeholder="Senha"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
@@ -63,8 +61,10 @@ const Login = () => {
             Entrar
           </button>
         </form>
-       {/* Necessário ajuste no front: */}
+
+        {/* Necessário ajuste no front: */}
         {errorMessage && <p className="error-message">{errorMessage}</p>}
+        {token && <p>Token JWT: </p>}
       </div>
     </div>
   );

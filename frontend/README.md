@@ -16,7 +16,8 @@ Para instalar o sistema, siga os passos abaixo:
    npm install mysql2
    npm install express
    npm install react
-   
+   npm install axios
+   npm install cors
 
 ## ⚙️ Uso
 
@@ -45,3 +46,4 @@ O sistema **OPN Finance** é de uso livre, mas **é ilegal vendê-lo sem a autor
 Caso precise de mais informações ou tenha dúvidas, entre em contato conosco pelo e-mail:
 
 - 📧 E-MAIL: (evertnnsantts@gmail.com)
+- 📧E-MAIL: (alissinlima7713@gmail.com)

@@ -1,26 +1,40 @@
 import express from 'express';
-import LoginDB from '../models/LoginDB.js'; 
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 const router = express.Router();
 
+// usuario ficticio
+const users = [
+  {
+    id: 1,
+    username: 'user1',
+    password: '$2b$10$YHETK/cDgbo1AhId5RiReORv8edQWjxhkS.dsoO1GUzNeW2AeeSIy', // senha "teste123"
+  }
+];
+
 // Rota de login
-router.post('/api/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
-  try {
-    const user = await LoginDB.findOne({
-      where: { usuario: username, senha: password }
-    });
 
-    if (user) {
-      res.status(200).send({ message: 'Login bem-sucedido!', user });
-    } else {
-      res.status(401).send({ message: 'Credenciais inválidas!' });
-    }
-  } catch (error) {
-    console.error('Erro ao fazer login:', error);
-    res.status(500).send({ message: 'Erro interno do servidor!' });
+  // Encontrar usuário no banco de dados
+  const user = users.find((u) => u.username === username);
+  if (!user) {
+    return res.status(400).json({ message: 'Usuário não encontrado!' });  
   }
+
+  // Verificar a senha
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) {
+    return res.status(400).json({ message: 'Senha incorreta' }); 
+  }
+
+  // Gerar token JWT
+  const token = jwt.sign({ id: user.id, username: user.username }, 'secreta', { expiresIn: '1h' });
+
+  // Retornar o token para o cliente
+  res.json({ token });
 });
 
 export default router;
