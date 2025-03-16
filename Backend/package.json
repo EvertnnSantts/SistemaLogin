@@ -20,5 +20,8 @@
     "jsonwebtoken": "^9.0.2",
     "body-parser": "^1.19.0"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
+  }
 }

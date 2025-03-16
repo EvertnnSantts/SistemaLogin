@@ -22,7 +22,7 @@ const Login = () => {
       // Salva o token em localStorage
       localStorage.setItem('token', response.data.token);
       setToken(response.data.token);
-
+      
       // Exibe mensagem de sucesso
       alert('login bem-sucedido!');
     } catch (err) {
