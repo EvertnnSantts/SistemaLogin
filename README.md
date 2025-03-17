@@ -1,6 +1,6 @@
 # Login
 
-Status: Em Desvolvimento...
+Status: Concluido.
 
 
 ## 📦 Instalação
